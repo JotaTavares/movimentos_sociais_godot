@@ -1,0 +1,15 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwikf47f01cs7"]
+
+[ext_resource type="Script" uid="uid://c676k0ajhmg4p" path="res://SCRIPTS/main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dwq3noa4cb1it" path="res://PÁGINAS/CAPA.tscn" id="2_kek77"]
+[ext_resource type="PackedScene" uid="uid://bo8jtyysc0pe2" path="res://PÁGINAS/PAGINA2.tscn" id="3_4c57u"]
+[ext_resource type="PackedScene" uid="uid://wng5fxkwpxcs" path="res://PÁGINAS/PAGINA3.tscn" id="4_efxa6"]
+[ext_resource type="PackedScene" uid="uid://b5lacsmt86yjb" path="res://PÁGINAS/PAGINA4.tscn" id="5_dg77c"]
+[ext_resource type="PackedScene" uid="uid://bwnik3bhuu6jj" path="res://PÁGINAS/PAGINA5.tscn" id="6_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://c480l5y03eudi" path="res://PÁGINAS/PAGINA6.tscn" id="7_w48qg"]
+[ext_resource type="PackedScene" uid="uid://cfl4dknvf61ks" path="res://PÁGINAS/PAGINA7.tscn" id="8_vivmo"]
+[ext_resource type="PackedScene" uid="uid://cgpyh5irnjuk" path="res://PÁGINAS/CONTRACAPA.tscn" id="9_2cqfq"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ig7tw")
+paginas = Array[PackedScene]([ExtResource("2_kek77"), ExtResource("3_4c57u"), ExtResource("4_efxa6"), ExtResource("5_dg77c"), ExtResource("6_ycdy4"), ExtResource("7_w48qg"), ExtResource("8_vivmo"), ExtResource("9_2cqfq")])

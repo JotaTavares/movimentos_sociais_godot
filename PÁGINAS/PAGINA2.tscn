@@ -1,0 +1,175 @@
+[gd_scene load_steps=20 format=3 uid="uid://bo8jtyysc0pe2"]
+
+[ext_resource type="Script" uid="uid://dx8a2nnrvwt1s" path="res://SCRIPTS/pagina2.gd" id="1_ofauf"]
+[ext_resource type="Texture2D" uid="uid://cea7uay1e2xmc" path="res://IMAGENS/Páginas/2.png" id="2_nk2xf"]
+[ext_resource type="Texture2D" uid="uid://bpsgi7ekpmh3" path="res://IMAGENS/Botões/ligar_som.png" id="3_6oi68"]
+[ext_resource type="Texture2D" uid="uid://dvkdxoe36ju13" path="res://IMAGENS/Botões/desligar_som.png" id="4_nk2xf"]
+[ext_resource type="AudioStream" uid="uid://5nqo7yxpv2w" path="res://ÁUDIOS/página 2.wav" id="5_nk2xf"]
+[ext_resource type="Texture2D" uid="uid://c4co2itct50wy" path="res://IMAGENS/Página 2/arvore.png" id="6_ofauf"]
+[ext_resource type="Texture2D" uid="uid://brulpn74kt2np" path="res://IMAGENS/Página 2/arbusto.png" id="7_phf6u"]
+[ext_resource type="Texture2D" uid="uid://cc2wcs5htp3vd" path="res://IMAGENS/Página 2/banco.png" id="8_u6om0"]
+[ext_resource type="Texture2D" uid="uid://deagjab4tkk8l" path="res://IMAGENS/Página 2/estrada.png" id="9_hswep"]
+[ext_resource type="PackedScene" uid="uid://d3kcda7p0q7v" path="res://pessoa_arrastavel.tscn" id="9_phf6u"]
+[ext_resource type="PackedScene" uid="uid://bvbv1mgiy7d65" path="res://buraco.tscn" id="10_cw2qa"]
+[ext_resource type="Texture2D" uid="uid://bvvu8at3s0pcu" path="res://IMAGENS/Página 2/rolocompressor.png" id="11_pentk"]
+[ext_resource type="Texture2D" uid="uid://bksbsdx0gqpbt" path="res://IMAGENS/Pessoas/whiteman.png" id="13_atulv"]
+[ext_resource type="Texture2D" uid="uid://d4hqsyxjkhwfx" path="res://IMAGENS/Pessoas/blackwoman.png" id="14_swq5w"]
+[ext_resource type="Texture2D" uid="uid://bxuy8muq4xrxw" path="res://IMAGENS/Pessoas/blondeman.png" id="15_q55fd"]
+[ext_resource type="Texture2D" uid="uid://bvhw181agk2gq" path="res://IMAGENS/Pessoas/blackman.png" id="16_mjf86"]
+[ext_resource type="Texture2D" uid="uid://b1k75k7cwqenk" path="res://IMAGENS/Pessoas/whitewomanpants.png" id="18_r1iva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk2xf"]
+size = Vector2(258, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in26a"]
+size = Vector2(231, 117)
+
+[node name="PAG2" type="Node2D"]
+position = Vector2(384, 512)
+script = ExtResource("1_ofauf")
+total_de_pessoas = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nk2xf")
+
+[node name="BotaoAnterior" type="TextureButton" parent="."]
+offset_left = -340.0
+offset_top = 396.0
+offset_right = -114.0
+offset_bottom = 454.0
+
+[node name="BotaoProxima" type="TextureButton" parent="."]
+offset_left = 130.0
+offset_top = 397.0
+offset_right = 355.0
+offset_bottom = 454.0
+
+[node name="BotaoSom" type="TextureButton" parent="."]
+offset_left = 111.0
+offset_top = -470.0
+offset_right = 333.0
+offset_bottom = -423.0
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("3_6oi68")
+texture_pressed = ExtResource("4_nk2xf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nk2xf")
+autoplay = true
+
+[node name="Rua" type="Sprite2D" parent="."]
+position = Vector2(0, 283)
+texture = ExtResource("9_hswep")
+
+[node name="Buraco6" parent="." instance=ExtResource("10_cw2qa")]
+position = Vector2(-120, -106)
+
+[node name="Buraco5" parent="." instance=ExtResource("10_cw2qa")]
+position = Vector2(-206, -55)
+
+[node name="Buraco4" parent="." instance=ExtResource("10_cw2qa")]
+position = Vector2(-505, -106)
+
+[node name="Buraco3" parent="." instance=ExtResource("10_cw2qa")]
+position = Vector2(-401, -55)
+
+[node name="Buraco2" parent="." instance=ExtResource("10_cw2qa")]
+position = Vector2(-311, -104)
+
+[node name="Buraco" parent="." instance=ExtResource("10_cw2qa")]
+position = Vector2(-654, -54)
+
+[node name="PracaCentral" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="arvore2" type="Sprite2D" parent="PracaCentral"]
+position = Vector2(-82, 68)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ofauf")
+
+[node name="arvore" type="Sprite2D" parent="PracaCentral"]
+position = Vector2(82, 48)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_ofauf")
+
+[node name="arbusto" type="Sprite2D" parent="PracaCentral"]
+position = Vector2(-72, 172)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_phf6u")
+
+[node name="banco" type="Sprite2D" parent="PracaCentral"]
+z_as_relative = false
+position = Vector2(29, 169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_u6om0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PracaCentral"]
+visible = false
+position = Vector2(-6, 152)
+shape = SubResource("RectangleShape2D_nk2xf")
+
+[node name="SlotsPessoas" type="Node2D" parent="PracaCentral"]
+position = Vector2(-7, 12)
+
+[node name="Slot1" type="Marker2D" parent="PracaCentral/SlotsPessoas"]
+position = Vector2(-113, 137)
+
+[node name="Slot2" type="Marker2D" parent="PracaCentral/SlotsPessoas"]
+position = Vector2(-57, 137)
+
+[node name="Slot3" type="Marker2D" parent="PracaCentral/SlotsPessoas"]
+position = Vector2(3, 138)
+
+[node name="Slot4" type="Marker2D" parent="PracaCentral/SlotsPessoas"]
+position = Vector2(72, 139)
+
+[node name="Slot5" type="Marker2D" parent="PracaCentral/SlotsPessoas"]
+position = Vector2(125, 140)
+
+[node name="PessoaArrastavel" parent="." instance=ExtResource("9_phf6u")]
+z_index = 20
+position = Vector2(259, -9)
+textura_da_pessoa = ExtResource("13_atulv")
+
+[node name="PessoaArrastavel2" parent="." instance=ExtResource("9_phf6u")]
+z_index = 20
+position = Vector2(335, 170)
+textura_da_pessoa = ExtResource("14_swq5w")
+
+[node name="PessoaArrastavel3" parent="." instance=ExtResource("9_phf6u")]
+z_index = 20
+position = Vector2(202, 175)
+textura_da_pessoa = ExtResource("15_q55fd")
+
+[node name="PessoaArrastavel4" parent="." instance=ExtResource("9_phf6u")]
+z_index = 20
+position = Vector2(-268, 206)
+textura_da_pessoa = ExtResource("16_mjf86")
+
+[node name="PessoaArrastavel6" parent="." instance=ExtResource("9_phf6u")]
+z_index = 20
+position = Vector2(-330, 47)
+textura_da_pessoa = ExtResource("18_r1iva")
+
+[node name="RoloCompressor" type="Area2D" parent="."]
+z_index = 100
+position = Vector2(-335, -24)
+
+[node name="Sprite2D" type="Sprite2D" parent="RoloCompressor"]
+position = Vector2(-256.7, 254.1)
+scale = Vector2(0.3635417, 0.36223957)
+texture = ExtResource("11_pentk")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoloCompressor"]
+position = Vector2(-239, 312)
+shape = SubResource("RectangleShape2D_in26a")
+
+[connection signal="body_entered" from="PracaCentral" to="." method="_on_praca_central_body_entered"]
+[connection signal="area_entered" from="RoloCompressor" to="." method="_on_rolo_compressor_area_entered"]

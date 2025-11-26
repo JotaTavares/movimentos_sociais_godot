@@ -1,0 +1,136 @@
+[gd_scene load_steps=16 format=3 uid="uid://b5lacsmt86yjb"]
+
+[ext_resource type="Script" uid="uid://dsht1srlxabal" path="res://PÁGINAS/pagina4.gd" id="1_lycwn"]
+[ext_resource type="Texture2D" uid="uid://dm106aljbpam6" path="res://IMAGENS/Páginas/4.png" id="2_d1tyf"]
+[ext_resource type="Texture2D" uid="uid://bpsgi7ekpmh3" path="res://IMAGENS/Botões/ligar_som.png" id="3_d1tyf"]
+[ext_resource type="Texture2D" uid="uid://dvkdxoe36ju13" path="res://IMAGENS/Botões/desligar_som.png" id="4_u6ymv"]
+[ext_resource type="AudioStream" uid="uid://bdiy13a80hmcc" path="res://ÁUDIOS/página 4.wav" id="5_u6ymv"]
+[ext_resource type="Texture2D" uid="uid://dsd86re6l1oqu" path="res://IMAGENS/Página 4/22.png" id="6_yhwar"]
+[ext_resource type="Texture2D" uid="uid://byu04kenals2k" path="res://IMAGENS/Página 4/21.png" id="7_3d35s"]
+[ext_resource type="Texture2D" uid="uid://bmtjhdxusdxt1" path="res://IMAGENS/Página 4/MST.png" id="8_k2mfb"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_qa3bf"]
+points = PackedVector2Array(96, 101, -38, 105, -97, 15, -58, -55, 94, -55)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lycwn"]
+friction = 0.0
+bounce = 0.6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lycwn"]
+size = Vector2(119, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhwar"]
+size = Vector2(767, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3d35s"]
+size = Vector2(20, 1021.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2mfb"]
+size = Vector2(16, 975)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m70wg"]
+size = Vector2(837, 20)
+
+[node name="PAG4" type="Node2D"]
+position = Vector2(384, 512)
+script = ExtResource("1_lycwn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_d1tyf")
+
+[node name="BotaoAnterior" type="TextureButton" parent="."]
+offset_left = -340.0
+offset_top = 396.0
+offset_right = -114.0
+offset_bottom = 454.0
+mouse_filter = 1
+
+[node name="BotaoProxima" type="TextureButton" parent="."]
+offset_left = 130.0
+offset_top = 397.0
+offset_right = 355.0
+offset_bottom = 454.0
+mouse_filter = 1
+
+[node name="BotaoSom" type="TextureButton" parent="."]
+offset_left = 111.0
+offset_top = -470.0
+offset_right = 333.0
+offset_bottom = -423.0
+mouse_filter = 1
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("3_d1tyf")
+texture_pressed = ExtResource("4_u6ymv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_u6ymv")
+autoplay = true
+
+[node name="FundoProdutivo" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 8
+offset_left = -382.0
+offset_top = -83.0
+offset_right = 386.0
+offset_bottom = 377.0
+mouse_filter = 2
+texture = ExtResource("6_yhwar")
+
+[node name="FundoImprodutivo" type="TextureRect" parent="."]
+offset_left = -382.0
+offset_top = -83.0
+offset_right = 382.0
+offset_bottom = 330.0
+mouse_filter = 2
+texture = ExtResource("7_3d35s")
+
+[node name="GatilhoTerreno" type="Area2D" parent="."]
+position = Vector2(97, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GatilhoTerreno"]
+position = Vector2(168, 24)
+shape = SubResource("ConvexPolygonShape2D_qa3bf")
+
+[node name="GrupoMST" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_lycwn")
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="GrupoMST"]
+position = Vector2(-1.9999999, 219.99998)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_k2mfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrupoMST"]
+position = Vector2(1.5, 248.5)
+shape = SubResource("RectangleShape2D_lycwn")
+
+[node name="NotificadorLimite" type="VisibleOnScreenNotifier2D" parent="GrupoMST"]
+
+[node name="Paredes" type="StaticBody2D" parent="."]
+position = Vector2(-5, 67)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(-0.5, 436.25)
+shape = SubResource("RectangleShape2D_yhwar")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(-368, -67.25)
+shape = SubResource("RectangleShape2D_3d35s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(382, -63)
+shape = SubResource("RectangleShape2D_k2mfb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(1, -566)
+shape = SubResource("RectangleShape2D_m70wg")
+
+[connection signal="body_entered" from="GatilhoTerreno" to="." method="_on_gatilho_terreno_body_entered"]

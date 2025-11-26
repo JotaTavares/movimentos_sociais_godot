@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3kcda7p0q7v"]
+
+[ext_resource type="Script" uid="uid://cvv6fyrcr7q45" path="res://SCRIPTS/pessoa_arrastavel.gd" id="1_6luim"]
+[ext_resource type="Texture2D" uid="uid://ckihb5bl775gt" path="res://IMAGENS/Pessoas/womanreddress.png" id="2_owhx6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owhx6"]
+size = Vector2(260.75, 909.0833)
+
+[node name="PessoaArrastavel" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_6luim")
+textura_da_pessoa = ExtResource("2_owhx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.11249924, 4.637499)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_owhx6")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

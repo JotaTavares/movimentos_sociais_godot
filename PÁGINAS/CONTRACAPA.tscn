@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgpyh5irnjuk"]
+
+[ext_resource type="Script" uid="uid://bvacn03g2g23q" path="res://SCRIPTS/Pagina.gd" id="1_c86yv"]
+[ext_resource type="Texture2D" uid="uid://cj0iqncql3ue1" path="res://IMAGENS/Páginas/contracapa.png" id="2_vabux"]
+[ext_resource type="Texture2D" uid="uid://bpsgi7ekpmh3" path="res://IMAGENS/Botões/ligar_som.png" id="3_vabux"]
+[ext_resource type="Texture2D" uid="uid://dvkdxoe36ju13" path="res://IMAGENS/Botões/desligar_som.png" id="4_l6mxm"]
+[ext_resource type="AudioStream" uid="uid://dvknm81n4wm6e" path="res://ÁUDIOS/contracapa.wav" id="5_l6mxm"]
+
+[node name="CONTRACAPA" type="Node2D"]
+position = Vector2(384, 512)
+script = ExtResource("1_c86yv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vabux")
+
+[node name="BotaoSom" type="TextureButton" parent="."]
+offset_left = 111.0
+offset_top = -470.0
+offset_right = 333.0
+offset_bottom = -423.0
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("3_vabux")
+texture_pressed = ExtResource("4_l6mxm")
+
+[node name="BotaoAnterior" type="TextureButton" parent="."]
+offset_left = -340.0
+offset_top = 396.0
+offset_right = -114.0
+offset_bottom = 454.0
+
+[node name="BotaoVoltarInicio" type="TextureButton" parent="."]
+offset_left = 79.0
+offset_top = 393.0
+offset_right = 332.0
+offset_bottom = 450.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l6mxm")
+autoplay = true

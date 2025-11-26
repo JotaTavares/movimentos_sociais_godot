@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvbv1mgiy7d65"]
+
+[ext_resource type="Script" uid="uid://c0ou8j57faxg2" path="res://SCRIPTS/buraco.gd" id="1_1dubc"]
+[ext_resource type="Texture2D" uid="uid://r4w8gyg8o7vl" path="res://IMAGENS/Página 2/buraco.png" id="2_ka13h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5t5t"]
+radius = 12.0
+height = 60.0
+
+[node name="Buraco" type="Area2D"]
+script = ExtResource("1_1dubc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(386, 378)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ka13h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(389, 378)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_r5t5t")

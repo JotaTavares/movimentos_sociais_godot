@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://wng5fxkwpxcs"]
+
+[ext_resource type="Script" uid="uid://db8cmeb2lglh2" path="res://pagina3.gd" id="1_hoq5f"]
+[ext_resource type="Texture2D" uid="uid://cgbimxucopw5n" path="res://IMAGENS/Página 3/16.png" id="2_5oe17"]
+[ext_resource type="Texture2D" uid="uid://pou7al4wxaga" path="res://IMAGENS/Páginas/3.png" id="2_vde58"]
+[ext_resource type="Texture2D" uid="uid://bpsgi7ekpmh3" path="res://IMAGENS/Botões/ligar_som.png" id="3_vde58"]
+[ext_resource type="Texture2D" uid="uid://df0slb7j8i67m" path="res://IMAGENS/Página 3/17.png" id="3_xfu2b"]
+[ext_resource type="Texture2D" uid="uid://dvkdxoe36ju13" path="res://IMAGENS/Botões/desligar_som.png" id="4_1o1wi"]
+[ext_resource type="Texture2D" uid="uid://ctcqspd8bpg1v" path="res://IMAGENS/Página 3/18.png" id="4_71hor"]
+[ext_resource type="AudioStream" uid="uid://b7htnx8xdtxjm" path="res://ÁUDIOS/página 3.wav" id="5_1o1wi"]
+[ext_resource type="Texture2D" uid="uid://dd1qcjvisdyd0" path="res://IMAGENS/Página 3/19.png" id="5_f0h33"]
+[ext_resource type="Texture2D" uid="uid://ddqavjj0oxlop" path="res://IMAGENS/Página 3/20.png" id="6_b32h4"]
+[ext_resource type="Texture2D" uid="uid://dmfwc2hv5bmso" path="res://IMAGENS/Página 3/flash.png" id="11_5oe17"]
+
+[node name="PAG3" type="Node2D"]
+position = Vector2(384, 512)
+script = ExtResource("1_hoq5f")
+quadros_animacao = Array[Texture2D]([ExtResource("2_5oe17"), ExtResource("3_xfu2b"), ExtResource("4_71hor"), ExtResource("5_f0h33"), ExtResource("6_b32h4")])
+textos_animacao = Array[String](["15 de junho de 1983, Goiânia", "27 de novembro de 1983, Pacaembu", "25 de janeiro de 1984, Praça da Sé", "10 de abril de 1984, Candelária", "16 de abril de 1984, Anhangabaú"])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vde58")
+
+[node name="BotaoAnterior" type="TextureButton" parent="."]
+offset_left = -340.0
+offset_top = 396.0
+offset_right = -114.0
+offset_bottom = 454.0
+
+[node name="BotaoProxima" type="TextureButton" parent="."]
+offset_left = 130.0
+offset_top = 397.0
+offset_right = 355.0
+offset_bottom = 454.0
+
+[node name="BotaoSom" type="TextureButton" parent="."]
+offset_left = 111.0
+offset_top = -470.0
+offset_right = 333.0
+offset_bottom = -423.0
+toggle_mode = true
+texture_normal = ExtResource("3_vde58")
+texture_pressed = ExtResource("4_1o1wi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1o1wi")
+autoplay = true
+
+[node name="DisplayImagem" type="TextureRect" parent="."]
+offset_left = -380.0
+offset_top = -128.0
+offset_right = 380.0
+offset_bottom = 372.0
+texture = ExtResource("2_5oe17")
+expand_mode = 1
+
+[node name="FlashTexture" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -299.0
+offset_top = -144.0
+offset_right = 84.0
+offset_bottom = 237.0
+texture = ExtResource("11_5oe17")
+
+[node name="DisplayTexto" type="Label" parent="."]
+z_index = 5
+offset_left = -318.0
+offset_top = 204.0
+offset_right = -46.0
+offset_bottom = 281.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TimelineSlider" type="HSlider" parent="."]
+z_index = 14
+offset_left = -340.0
+offset_top = 320.0
+offset_right = 340.0
+offset_bottom = 362.0
+
+[connection signal="pressed" from="BotaoAnterior" to="." method="_on_botao_anterior_pressed"]
+[connection signal="pressed" from="BotaoProxima" to="." method="_on_botao_proxima_pressed"]
+[connection signal="toggled" from="BotaoSom" to="." method="_on_botao_som_toggled"]
+[connection signal="value_changed" from="TimelineSlider" to="." method="_on_timeline_slider_value_changed"]
